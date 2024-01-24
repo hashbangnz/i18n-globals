@@ -14,11 +14,6 @@ module I18n
 
   class << self
     def translate(key = nil, options = {})
-      if args.last.is_a?(Hash)
-        args[-1] = config.globals.merge(args.last)
-      else
-        args << config.globals
-      end
       super(key, **options.merge(config.globals))
     end
 
