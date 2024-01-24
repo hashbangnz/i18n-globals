@@ -2,6 +2,13 @@
 
 Adds support for I18n global variables, which will be available for interpolation into every translation.
 
+## This fork
+
+This fork adds thread-safety to i18n-globals. It reverts back to an earlier version of the gem, before it
+was rewritten to allow to set different globals per locale - this is complexity we don't need.
+
+We also add support for Ruby 2.7 from this fork: https://github.com/nusnick/i18n-globals
+
 ## Description
 
 Extends the Ruby I18n gem with global variables. The globals will be available for interpolation in every translation without explicitly specifying them in a call to `I18n.translate`. The variables can be accessed through `I18n.config.globals`.

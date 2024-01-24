@@ -4,22 +4,22 @@ require 'i18n/globals/version'
 module I18n
   class Config
     def globals
-      @@globals ||= {}
+      Thread.current[:i18n_globals] ||= {}
     end
 
     def globals=(globals)
-      @@globals = globals
+      Thread.current[:i18n_globals] = globals
     end
   end
 
   class << self
-    def translate(*args)
+    def translate(key = nil, options = {})
       if args.last.is_a?(Hash)
         args[-1] = config.globals.merge(args.last)
       else
         args << config.globals
       end
-      super(*args)
+      super(key, **options.merge(config.globals))
     end
 
     alias :t :translate
