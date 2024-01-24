@@ -4,8 +4,10 @@ Adds support for I18n global variables, which will be available for interpolatio
 
 ## This fork
 
-This fork adds thread-safety to i18n-globals. It reverts back to an earlier version of the gem, before it
-was rewritten to allow to set different globals per locale - this is complexity we don't need.
+This fork makes i18n-globals Apartment Tenant specific so that globals can be set per tenant.
+
+It is based on an earlier version of the gem than current Master, before it was rewritten to
+allow a different set of globals per locale - this is complexity we don't need.
 
 We also add support for Ruby 2.7 from this fork: https://github.com/nusnick/i18n-globals
 
