@@ -13,14 +13,12 @@ module I18n
   end
 
   class << self
-    def translate(*args)
-      if args.last.is_a?(Hash)
-        args[-1] = config.globals.merge(args.last)
-      else
-        args << config.globals
-      end
-      super(*args)
+
+    def translate(key = nil, **options)
+      super(key, **config.globals.merge(options))
     end
+    alias :t :translate
+
 
     alias :t :translate
   end
